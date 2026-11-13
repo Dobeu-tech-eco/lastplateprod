@@ -5,7 +5,7 @@ Original head: 4c20c8577813820a0bfe22aa05f265524ed87e08
 Base: d9c1ef8dc8dd2967236ce87a096be939635aa1e3
 CI log: https://github.com/Dobeu-tech-eco/lastplateprod/actions/runs/42466634807
 
-Clean base archive in /tmp/pr30-base and isolated PR checkout each received npm ci and npx tsc --noEmit. Diagnostics were identical after checkout-path normalization: all 34 original errors predate this dependency-only PR.
+Clean base archive in a temporary isolated directory and isolated PR checkout each received npm ci and npx tsc --noEmit. Diagnostics were identical after checkout-path normalization: all 34 original errors predate this dependency-only PR.
 
 ## Repairs
 
@@ -59,7 +59,7 @@ src/pages/docs/getting-started.tsx(2,22): error TS2307: Cannot find module 'reac
 src/pages/docs/getting-started.tsx(8,24): error TS2307: Cannot find module '@/components/docs/DocsLayout' or its corresponding type declarations.
 src/pages/docs/getting-started.tsx(9,23): error TS2307: Cannot find module '@/components/docs/CodeBlock' or its corresponding type declarations.
 src/pages/docs/index.tsx(2,22): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
-src/pages/docs/index.tsx(8,8): error TS2613: Module '"/Users/amywilliams/worktrees/lastplateprod/codex-fix-lastplate30-t-3b832dfa9bbb8004/src/components/SavePlateLogo"' has no default export. Did you mean to use 'import { SavePlateLogo } from "/Users/amywilliams/worktrees/lastplateprod/codex-fix-lastplate30-t-3b832dfa9bbb8004/src/components/SavePlateLogo"' instead?
+src/pages/docs/index.tsx(8,8): error TS2613: Module '"<checkout>/src/components/SavePlateLogo"' has no default export. Did you mean to use 'import { SavePlateLogo } from "<checkout>/src/components/SavePlateLogo"' instead?
 src/pages/index.tsx(88,11): error TS2322: Type 'string' is not assignable to type 'null'.
 src/pages/marketing-home.tsx(31,20): error TS2322: Type '{ onGetStarted: () => void; }' is not assignable to type 'IntrinsicAttributes'.
 src/pages/marketing-home.tsx(38,24): error TS2322: Type '{ onGetStarted: () => void; }' is not assignable to type 'IntrinsicAttributes'.
