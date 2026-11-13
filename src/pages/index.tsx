@@ -72,7 +72,7 @@ export default function QuickLogWaste() {
         return;
       }
 
-      let photoUrl = null;
+      let photoUrl: string | null = null;
 
       // Upload photo if provided
       if (photo) {

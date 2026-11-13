@@ -20,7 +20,7 @@ interface VendorsPageProps {
 
 export default function VendorsPage({ locationId }: VendorsPageProps) {
   const { trackPageVisit, trackVendorAction } = useIntercomMessaging();
-  const { vendors, loading, error, createVendor, updateVendor, deleteVendor } = useVendors(locationId);
+  const { vendors, loading, error, createVendor, updateVendor, deleteVendor } = useVendors();
   const { performance } = useVendorPerformance(locationId);
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [filterType, setFilterType] = useState<string>('all');
