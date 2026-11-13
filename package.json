@@ -7,6 +7,7 @@
         "dev": "vite --host 0.0.0.0 --port 5000",
         "build": "tsc -b --noCheck && vite build",
         "lint": "eslint .",
+        "test": "node --test tests/*.test.mjs",
         "preview": "vite preview --host 0.0.0.0 --port 5000",
         "start": "vite --host 0.0.0.0 --port 5000"
     },
