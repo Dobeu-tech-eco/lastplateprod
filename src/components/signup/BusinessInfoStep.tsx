@@ -92,7 +92,11 @@ export function BusinessInfoStep({ formData, updateFormData, onNext, onBack }: B
             value={firstName}
             onChange={(e) => {
               setFirstName(e.target.value);
-              setErrors(prev => ({ ...prev, firstName: undefined }));
+              setErrors(prev => {
+                const next = { ...prev };
+                delete next.firstName;
+                return next;
+              });
             }}
             className={errors.firstName ? 'border-destructive' : ''}
           />
@@ -110,7 +114,11 @@ export function BusinessInfoStep({ formData, updateFormData, onNext, onBack }: B
             value={lastName}
             onChange={(e) => {
               setLastName(e.target.value);
-              setErrors(prev => ({ ...prev, lastName: undefined }));
+              setErrors(prev => {
+                const next = { ...prev };
+                delete next.lastName;
+                return next;
+              });
             }}
             className={errors.lastName ? 'border-destructive' : ''}
           />
@@ -129,7 +137,11 @@ export function BusinessInfoStep({ formData, updateFormData, onNext, onBack }: B
           value={businessName}
           onChange={(e) => {
             setBusinessName(e.target.value);
-            setErrors(prev => ({ ...prev, businessName: undefined }));
+            setErrors(prev => {
+                const next = { ...prev };
+                delete next.businessName;
+                return next;
+              });
           }}
           className={errors.businessName ? 'border-destructive' : ''}
         />
@@ -144,7 +156,11 @@ export function BusinessInfoStep({ formData, updateFormData, onNext, onBack }: B
           value={cuisineType}
           onValueChange={(value) => {
             setCuisineType(value);
-            setErrors(prev => ({ ...prev, cuisineType: undefined }));
+            setErrors(prev => {
+                const next = { ...prev };
+                delete next.cuisineType;
+                return next;
+              });
           }}
         >
           <SelectTrigger className={errors.cuisineType ? 'border-destructive' : ''}>
@@ -169,7 +185,11 @@ export function BusinessInfoStep({ formData, updateFormData, onNext, onBack }: B
           value={locationsCount}
           onValueChange={(value) => {
             setLocationsCount(value);
-            setErrors(prev => ({ ...prev, locationsCount: undefined }));
+            setErrors(prev => {
+                const next = { ...prev };
+                delete next.locationsCount;
+                return next;
+              });
           }}
         >
           <SelectTrigger className={errors.locationsCount ? 'border-destructive' : ''}>

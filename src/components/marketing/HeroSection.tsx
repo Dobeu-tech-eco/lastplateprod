@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar } from 'lucide-react';
 
-export function HeroSection() {
+export function HeroSection({ onGetStarted }: { onGetStarted: () => void }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background py-20 md:py-32">
       <div className="container mx-auto px-4">
@@ -23,6 +23,7 @@ export function HeroSection() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
+                onClick={onGetStarted}
                 size="lg" 
                 className="text-lg h-14 px-8 bg-gradient-to-r from-primary to-primary-glow hover:shadow-glow"
               >

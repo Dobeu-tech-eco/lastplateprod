@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check } from 'lucide-react';
 
-export function FinalCTASection() {
+export function FinalCTASection({ onGetStarted }: { onGetStarted: () => void }) {
   const trustSignals = [
     'No credit card required',
     '14-day free trial',
@@ -24,6 +24,7 @@ export function FinalCTASection() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
+                onClick={onGetStarted}
               size="lg" 
               className="text-lg h-16 px-12 bg-gradient-to-r from-primary to-accent hover:shadow-glow"
             >

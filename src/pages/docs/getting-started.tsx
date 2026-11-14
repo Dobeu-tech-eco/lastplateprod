@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Copy, Check, ChevronRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import DocsLayout from '@/components/docs/DocsLayout';
-import CodeBlock from '@/components/docs/CodeBlock';
+import { DocsLayout } from '@/components/docs/docs_layout';
+import { CodeBlock } from '@/components/docs/code_block';
 
 const quickstartSteps = [
   {
@@ -145,12 +144,12 @@ export default function GettingStartedPage() {
                 )}
                 {step.action && (
                   <CardContent>
-                    <Link to={step.action.path}>
+                    <a href={step.action.path}>
                       <Button>
                         {step.action.label}
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
-                    </Link>
+                    </a>
                   </CardContent>
                 )}
               </Card>
@@ -320,7 +319,7 @@ X-RateLimit-Reset: 1704067200`}
         <section id="next-steps" className="mb-12">
           <h2 className="text-3xl font-bold mb-6">Next Steps</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link to="/docs/api-reference">
+            <a href="/docs/api-reference">
               <Card className="h-full hover:shadow-elegant transition-shadow hover:border-primary/50">
                 <CardHeader>
                   <CardTitle>API Reference</CardTitle>
@@ -329,8 +328,8 @@ X-RateLimit-Reset: 1704067200`}
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
-            <Link to="/docs/authentication">
+            </a>
+            <a href="/docs/authentication">
               <Card className="h-full hover:shadow-elegant transition-shadow hover:border-primary/50">
                 <CardHeader>
                   <CardTitle>Authentication & Security</CardTitle>
@@ -339,8 +338,8 @@ X-RateLimit-Reset: 1704067200`}
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
-            <Link to="/docs/integrations">
+            </a>
+            <a href="/docs/integrations">
               <Card className="h-full hover:shadow-elegant transition-shadow hover:border-primary/50">
                 <CardHeader>
                   <CardTitle>Integration Guides</CardTitle>
@@ -349,8 +348,8 @@ X-RateLimit-Reset: 1704067200`}
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
-            <Link to="/docs/tutorials">
+            </a>
+            <a href="/docs/tutorials">
               <Card className="h-full hover:shadow-elegant transition-shadow hover:border-primary/50">
                 <CardHeader>
                   <CardTitle>Tutorials & Use Cases</CardTitle>
@@ -359,7 +358,7 @@ X-RateLimit-Reset: 1704067200`}
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
+            </a>
           </div>
         </section>
       </div>
