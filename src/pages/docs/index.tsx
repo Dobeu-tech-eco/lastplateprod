@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Book, Code, Shield, Zap, Puzzle, Rocket, Users, GitBranch } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import SavePlateLogo from '@/components/SavePlateLogo';
+import { SavePlateLogo } from '@/components/SavePlateLogo';
 
 interface DocSection {
   title: string;
@@ -84,20 +83,20 @@ export default function DocsHomePage() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
               <SavePlateLogo size="sm" variant="icon" />
               <div>
                 <h1 className="text-xl font-bold text-foreground">SavePlate Developers</h1>
                 <p className="text-xs text-muted-foreground">Build with the SavePlate API</p>
               </div>
-            </Link>
+            </a>
             <div className="flex items-center gap-4">
-              <Link to="/docs/api-reference">
+              <a href="/docs/api-reference">
                 <Button variant="ghost">API Reference</Button>
-              </Link>
-              <Link to="/docs/getting-started">
+              </a>
+              <a href="/docs/getting-started">
                 <Button>Get Started</Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -154,7 +153,7 @@ export default function DocsHomePage() {
         <h2 className="text-3xl font-bold mb-8">Documentation</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {docSections.map((section) => (
-            <Link key={section.path} to={section.path}>
+            <a key={section.path} href={section.path}>
               <Card className="h-full hover:shadow-elegant transition-all hover:border-primary/50">
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
@@ -171,7 +170,7 @@ export default function DocsHomePage() {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
+            </a>
           ))}
         </div>
       </section>
@@ -182,7 +181,7 @@ export default function DocsHomePage() {
           <h2 className="text-3xl font-bold mb-8">Popular Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
             {popularGuides.map((guide) => (
-              <Link key={guide.path} to={guide.path}>
+              <a key={guide.path} href={guide.path}>
                 <Card className="hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
@@ -194,7 +193,7 @@ export default function DocsHomePage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -209,12 +208,12 @@ export default function DocsHomePage() {
               Create your API key and start building in minutes.
             </p>
             <div className="flex gap-4 justify-center">
-              <Link to="/settings">
+              <a href="/settings">
                 <Button size="lg">Get Your API Key</Button>
-              </Link>
-              <Link to="/docs/getting-started">
+              </a>
+              <a href="/docs/getting-started">
                 <Button size="lg" variant="outline">View Quickstart</Button>
-              </Link>
+              </a>
             </div>
           </CardContent>
         </Card>
@@ -227,36 +226,36 @@ export default function DocsHomePage() {
             <div>
               <h3 className="font-semibold mb-4">Documentation</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/docs/getting-started" className="hover:text-primary">Getting Started</Link></li>
-                <li><Link to="/docs/api-reference" className="hover:text-primary">API Reference</Link></li>
-                <li><Link to="/docs/graphql" className="hover:text-primary">GraphQL</Link></li>
-                <li><Link to="/docs/changelog" className="hover:text-primary">Changelog</Link></li>
+                <li><a href="/docs/getting-started" className="hover:text-primary">Getting Started</a></li>
+                <li><a href="/docs/api-reference" className="hover:text-primary">API Reference</a></li>
+                <li><a href="/docs/graphql" className="hover:text-primary">GraphQL</a></li>
+                <li><a href="/docs/changelog" className="hover:text-primary">Changelog</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Guides</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/docs/integrations" className="hover:text-primary">Integrations</Link></li>
-                <li><Link to="/docs/tutorials" className="hover:text-primary">Tutorials</Link></li>
-                <li><Link to="/docs/sdks" className="hover:text-primary">SDKs</Link></li>
-                <li><Link to="/docs/authentication" className="hover:text-primary">Security</Link></li>
+                <li><a href="/docs/integrations" className="hover:text-primary">Integrations</a></li>
+                <li><a href="/docs/tutorials" className="hover:text-primary">Tutorials</a></li>
+                <li><a href="/docs/sdks" className="hover:text-primary">SDKs</a></li>
+                <li><a href="/docs/authentication" className="hover:text-primary">Security</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Resources</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="https://6dcbe7d4-9bd.db-pool-europe-west1.altan.ai/services/openapi.json" className="hover:text-primary">OpenAPI Spec</a></li>
-                <li><Link to="/docs/partners" className="hover:text-primary">Partner Program</Link></li>
-                <li><Link to="/knowledge-base" className="hover:text-primary">Support</Link></li>
+                <li><a href="/docs/partners" className="hover:text-primary">Partner Program</a></li>
+                <li><a href="/knowledge-base" className="hover:text-primary">Support</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/" className="hover:text-primary">About</Link></li>
-                <li><Link to="/" className="hover:text-primary">Contact</Link></li>
-                <li><Link to="/" className="hover:text-primary">Privacy</Link></li>
-                <li><Link to="/" className="hover:text-primary">Terms</Link></li>
+                <li><a href="/" className="hover:text-primary">About</a></li>
+                <li><a href="/" className="hover:text-primary">Contact</a></li>
+                <li><a href="/" className="hover:text-primary">Privacy</a></li>
+                <li><a href="/" className="hover:text-primary">Terms</a></li>
               </ul>
             </div>
           </div>

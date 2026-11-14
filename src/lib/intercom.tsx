@@ -9,6 +9,7 @@ interface IntercomContextType {
 }
 
 interface IntercomUpdateData {
+  custom_launcher_selector?: string;
   user_id?: string;
   email?: string;
   name?: string;
@@ -28,7 +29,12 @@ interface IntercomUpdateData {
 
 declare global {
   interface Window {
-    Intercom: (command: string, data?: IntercomUpdateData) => void;
+    Intercom: {
+      (command: 'boot', data: IntercomUpdateData & { app_id: string }): void;
+      (command: 'update', data?: IntercomUpdateData): void;
+      (command: 'show' | 'hide' | 'shutdown'): void;
+      (command: 'trackEvent', event: string, metadata?: Record<string, unknown>): void;
+    };
     intercomSettings?: {
       app_id: string;
       hide_default_launcher?: boolean;
@@ -71,16 +77,16 @@ export function IntercomProvider({ children }: { children: React.ReactNode }) {
       const intercomData: IntercomUpdateData = {
         user_id: user.id,
         email: user.email || undefined,
-        name: userProfile.username || user.email,
+        name: userProfile.full_name || user.email,
         role: userProfile.role,
         location_id: userProfile.location_id || undefined,
         restaurant_id: userProfile.restaurant_id || undefined,
         company: {
           id: userProfile.restaurant_id || undefined,
-          name: userProfile.business_name || undefined,
-          plan: userProfile.subscription_plan || 'free',
+          name: 'business_name' in userProfile && typeof userProfile.business_name === 'string' ? userProfile.business_name : undefined,
+          plan: 'subscription_plan' in userProfile && typeof userProfile.subscription_plan === 'string' ? userProfile.subscription_plan : 'free',
         },
-        locations_count: userProfile.locations_count || 1,
+        locations_count: 'locations_count' in userProfile && typeof userProfile.locations_count === 'number' ? userProfile.locations_count : 1,
         signup_date: user.created_at,
         last_login: new Date().toISOString(),
       };

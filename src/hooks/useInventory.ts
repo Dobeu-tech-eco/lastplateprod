@@ -1,3 +1,5 @@
+import { supabase } from '@/lib/supabase';
+import type { InventoryLevel, InventoryTransaction } from '@/lib/vendor-types';
 import { useState, useEffect } from 'react';
 import { InventoryAPI, InventoryItem as APIInventoryItem, CreateInventoryItemInput } from '@/lib/api/inventory';
 import { logger } from '@/lib/logger';
